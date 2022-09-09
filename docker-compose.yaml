@@ -1,0 +1,12 @@
+version: "3.9"
+services:
+  wargame:
+    image: eugensystems/wargame3
+    ports:
+    - "${EXPOSEDPORT}:${EXPOSEDPORT}"
+    - "${EXPOSEDPORT}:${EXPOSEDPORT}/udp"
+    volumes:
+    - type: bind
+      source: ./settings
+      target: /server/settings
+    env_file: .env
